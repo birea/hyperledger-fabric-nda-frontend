@@ -1,0 +1,40 @@
+<div id="loader-wrapper" *ngIf="showSpinner">
+  <div id="loader"></div>
+
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+
+</div>
+
+<div class="card">
+  <h2 class="nda-text">Non Disclosure Agreement - Blocmatrix</h2>
+  <h4>Login</h4>
+  <form [formGroup]="loginForm">
+    <div class="input-container form-group">
+      <i class="fa fa-user icon"></i>
+      <input class="form-control" type="text" formControlName="username" placeholder="Username" username="username"
+        #username>
+    </div>
+    <div
+      *ngIf="loginForm.controls['username'].invalid && (loginForm.controls['username'].dirty || loginForm.controls['username'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="loginForm.controls['username'].errors.required">
+        Name is required.
+      </div>
+    </div>
+    <div class="input-container">
+      <i class="fa fa-key icon"></i>
+      <input class="form-control" type="password" formControlName="password" id="password" placeholder="Password"
+        name="password" #password>
+    </div>
+    <div
+      *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)"
+      class="alert alert-danger">
+      <div *ngIf="loginForm.controls['password'].errors.required">
+        Password is required.
+      </div>
+    </div>
+    <button type="Submit" class="btn btn-info btn-md" (click)="login()">Submit</button>
+  </form>
+  <br>{{message}}
+</div>

@@ -1,0 +1,52 @@
+<div id="loader-wrapper" *ngIf="showSpinner">
+  <div id="loader"></div>
+
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+
+</div>
+
+<div class="header">
+  <a (click)="home()" class="logo">
+    <img class="img-logo" src="../../assets/logo.png" alt="Block Matrix">
+  </a>
+  <div class="header-right">
+    <a class="btn btn-info btn-md" (click)="logout()">Logout</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2 class="nda-text text-center">Add NDA</h2><br>
+  <form [formGroup]="ndaForm">
+    <div class="input-container form-group">
+      <i class="fa fa-address-card icon"></i>
+      <input class="form-control" type="text" formControlName="name" placeholder="Party Name" name="name">
+    </div>
+    <div class="input-container">
+      <i class="fa fa-user icon"></i>
+      <input class="form-control" type="text" formControlName="ceo" id="ceo" placeholder="CEO" name="ceo">
+    </div>
+    <div class="input-container form-group">
+      <i class="fa fa-location-arrow icon"></i>
+      <input class="form-control" type="text" formControlName="location" placeholder="Party Location" name="location">
+    </div>
+    <div class="input-container form-group">
+      <i class="fa fa-user icon"></i>
+      <input class="form-control" type="text" formControlName="username" placeholder="Username" name="username">
+    </div>
+    <div class="input-container form-group">
+      <i class="fa fa-key icon"></i>
+      <input class="form-control" type="password" formControlName="password" placeholder="Password" name="password">
+    </div>
+    <div class="input-container form-group">
+      <i class="fa fa-calendar icon"></i>
+      <input class="form-control" type="date" formControlName="date" [min]="getToday()" name="date">
+    </div>
+    <div class="input-container form-group">
+      <i class="fa fa-book icon"></i>
+      <input class="form-control" type="text" formControlName="regarding" placeholder="Regarding" name="regarding">
+    </div>
+    <button type="Submit" class="btn btn-info btn-md" (click)="submit()" [disabled]="ndaForm.invalid">Submit</button>
+  </form>
+  <br>{{message}}
+</div>

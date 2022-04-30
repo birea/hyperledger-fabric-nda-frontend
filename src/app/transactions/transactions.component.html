@@ -1,0 +1,39 @@
+<div id="loader-wrapper" *ngIf="showSpinner">
+  <div id="loader"></div>
+
+  <div class="loader-section section-left"></div>
+  <div class="loader-section section-right"></div>
+
+</div>
+
+<div class="header">
+  <a (click)="home()" class="logo">
+    <img class="img-logo" src="../../assets/logo.png" alt="Block Matrix">
+  </a>
+  <div class="header-right">
+    <a class="btn btn-info btn-md" (click)="logout()">Logout</a>
+  </div>
+</div>
+
+<table id="customers">
+  <thead>
+    <tr>
+      <th>Transaction Hash</th>
+      <th>Timestamp</th>
+      <th>Disclosing Party</th>
+      <th>Receiving Party</th>
+      <th>View</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tx of txs">
+      <td>{{ tx.TxId }}</td>
+      <td>{{ tx.Timestamp | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+      <td>{{ tx.Value.disclosingparty }}</td>
+      <td>{{ tx.Value.receivingparty }}</td>
+      <td><button class="btn btn-info btn-sm" (click)="viewNDA(tx.Value)">View</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<p *ngIf="!showSpinner && !txs.length > 0">No Transactions found.</p>

@@ -1,0 +1,45 @@
+.card {
+    max-width: 80%;
+    margin: auto auto;
+    border: 0;
+    width: 60%;
+    margin-top: 10%;
+    border: 1px solid #ccc;
+    padding: 5%;
+}
+
+h2 {
+    margin-bottom: 2em;
+
+}
+
+.input-container {
+    display: -ms-flexbox;
+    /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.icon {
+    padding: 10px;
+    background: #2aaec0;
+    color: white;
+    min-width: 50px;
+    text-align: center;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+    border-radius: 0;
+}
+
+input:focus {
+    outline: 0 !important;
+}
+
+button {
+    margin-top: 2em;
+}
